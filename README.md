@@ -1,6 +1,7 @@
 # simpleMLP
-Simple Multilayer Perceptron built from scratch using numpy.
-Currently only uses `ReLu` activation.
+Simple Multilayer Perceptron built from scratch using numpy.  
+* Currently only uses `ReLu` activation.  
+* Only dense layer architecture for now.  
 
 ## How to use:
 1. Install requirements: `pip install -r requirements.txt`

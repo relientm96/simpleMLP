@@ -24,7 +24,7 @@ def relu_derivative(x):
 
 def sigmoid(x):
     # Sigmoid Activation
-    return 
+    return
 
 
 '''
@@ -67,9 +67,6 @@ class Layer:
             weights -= lr*(delta)
             bias    -= lr*(delta)
         '''
-
-
-
 
 
 '''
@@ -120,11 +117,15 @@ class MLP:
     def lossFunction(self, pred, true):
         '''
         Computing the mean squared error between prediction and actual vectors
+        Referenced from:
+            https://github.com/ahmedbesbes/Neural-Network-from-scratch/blob/493be2f4015d345fc68d3addd518c2b127e8c648/nn.py#L44
+
         Args:
             pred - Vector of output predictions 
             true - Vector of true values
-        Referenced from:
-            https://github.com/ahmedbesbes/Neural-Network-from-scratch/blob/493be2f4015d345fc68d3addd518c2b127e8c648/nn.py#L44
+        
+        Returns:
+            Scalar value of loss function
         '''
         n = len(pred)
         cost = (1./(2*n)) * np.sum((true - pred) ** 2)
@@ -167,7 +168,7 @@ class MLP:
             error - Error from loss function
         '''
         print("\nBackpropogation: ")
-        
+
         for l, n in zip(reversed(self.layers), reversed(self.names)):
             delta = error*relu_derivative(l.net_sums)
             print(delta)
@@ -206,7 +207,7 @@ class MLP:
 if __name__ == "__main__":
 
     mlp = MLP()
-    mlp.addLayer(Layer(2,1), "input")
+    mlp.addLayer(Layer(2, 1), "input")
     mlp.printLayers()
 
     inputs = np.array([np.array([2, 2]), np.array([5, 5])])
