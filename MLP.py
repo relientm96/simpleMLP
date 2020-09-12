@@ -13,10 +13,10 @@ Similar to the model.Dense layer of Keras API
 class Layer:
     def __init__(self, n_inputs, n_neurons):
         self.weights  = np.random.randn(n_inputs, n_neurons) # Each Weight is initialize gaussianly between (0,1) 
-        self.biases   = np.zeros((n_neurons, 1))   # Each neuron has it's own unique bias
+        self.biases   = np.zeros((n_neurons,1))  # Each neuron has it's own unique bias
 
     def activation(self, x):
-        # Using RELU activation
+        # ReLU Activation
         return max(0,x)
 
     def forward(self, inputs):
@@ -24,21 +24,20 @@ class Layer:
         Applies:
             output = activation(weight * input) + bias
         '''
-        self.output = np.dot(self.weights.T, inputs)
-        for i in range(len(self.output)):
-            self.output[i] = self.activation(self.output[i]) + self.biases[i][0]
-        return self.output
-
-'''
+        compute = np.dot(self.weights.T, inputs)
+        output = np.zeros(self.biases.shape)
+        for i in range(len(compute)):
+            output[i] = self.activation(compute[i]) + self.biases[i]
+        return output
+''' 
 Full Multilayer preceptron
-'''        
 class MLP:
     def __init__(self, ):
         
-
-
+'''
 
 if __name__ == "__main__":
-    layer = Layer(2,2)
+    layer = Layer(2,3)
     input = np.array([2, 2])
     out   = layer.forward(input)
+    pprint(out)
