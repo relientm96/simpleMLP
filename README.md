@@ -31,11 +31,11 @@ outputs = np.array([np.array([8]),  np.array([50])])
 5. Define parameters
 ```python
 lr = 1
-iterations = 1
+epochs = 1
 ```
 5. Train the model
 ```python
-mlp.train(inputs, outputs, iterations, lr)
+mlp.train(inputs, outputs, epochs, lr)
 ```
 6. View Results after Training!
 ```python
